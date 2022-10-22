@@ -1,3 +1,9 @@
+-- 테스트 계정
+-- TODO: 테스트용이지만 비밀번호가 노출된 데이터 세팅, 개선하는 것이 좋을 지 고민해 보자.
+insert into user_account (user_id, user_password, nickname, email, memo, created_at, created_by, modified_at, modified_by) values
+('xell', 'asdf1234', 'xell00', 'xell@mail.com', 'I am Xell', now(), 'xell', now(), 'xell')
+;
+
 insert into article (title, content, hashtag, created_by, modified_by, created_at, modified_at) values
 ('Nunc purus.', 'Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.', 'Mauv', 'Ingrim', 'Keen', '2021-11-20 12:43:37', '2021-08-29 06:30:13')
 ,('Cras pellentesque volutpat dui.', 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.', null, 'Patton', 'Nixie', '2022-03-05 22:39:28', '2022-04-06 00:37:30')
