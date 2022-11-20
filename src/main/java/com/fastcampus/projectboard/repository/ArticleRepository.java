@@ -21,11 +21,11 @@ public interface ArticleRepository extends
     @Override
     default void customize(QuerydslBindings bindings, QArticle root) {
         bindings.excludeUnlistedProperties(true);
-        bindings.including(root.title, root.content, root.hashtag, root.createdAt, root.createdBy);
+        bindings.including(root.title, root.content, root.hashtags, root.createdAt, root.createdBy);
         //bindings.bind(root.title).first(StringExpression::likeIgnoreCase); // like '${v}'
         bindings.bind(root.title).first(StringExpression::containsIgnoreCase); // like '%${v}%'
         bindings.bind(root.content).first(StringExpression::containsIgnoreCase); // like '%${v}%'
-        bindings.bind(root.hashtag).first(StringExpression::containsIgnoreCase); // like '%${v}%'
+        bindings.bind(root.hashtags.any().hashtagName).first(StringExpression::containsIgnoreCase); // like '%${v}%'
         bindings.bind(root.createdAt).first(DateTimeExpression::eq); // like '%${v}%'
         bindings.bind(root.createdBy).first(StringExpression::containsIgnoreCase); // like '%${v}%'
     }
